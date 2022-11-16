@@ -35,9 +35,16 @@ const MainPage = () =>
                 </thead>
 
                 <tbody>
-                    for (item in list)
                     {
-                        <ProductRow value={item}></ProductRow>
+                        list.map(({ id, product, isBought, quantity, price }) => {
+                            return <tr>
+                                <td>{product}</td>
+                                <td><input type="checkbox" checked={isBought} /></td>
+                                <td>{quantity}</td>
+                                <td>{price}</td>
+                                <td><button onClick={()=>console.log(`ID PRODOTTO = ${id}`)}>Elimina</button></td>
+                            </tr>
+                        })
                     }
                 </tbody>
             </table>
